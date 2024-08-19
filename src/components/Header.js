@@ -13,7 +13,7 @@ const Header = () => (
     borderRadius="md"
   >
     <Flex align="center" justify="space-between" wrap="wrap">
-      <Heading size="lg" mb={{ base: 2, md: 0 }}>My E-Commerce</Heading>
+      <Heading size="lg" mb={{ base: 2, md: 0 }}>E-Commerce Prototype</Heading>
       <Flex>
         <Button as={Link} to="/" colorScheme="blue" variant="link" mr={4}>
           Home

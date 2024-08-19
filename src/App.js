@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Layout } from 'antd';
+import AppHeader from './components/Header';
+import HomePage from './pages/HomePage';
+import CartPage from './pages/CartPage';
+import ProductPage from './pages/ProductPage';
+import Checkout from './components/Checkout';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const { Content, Footer } = Layout;
+
+const App = () => (
+  <Router>
+    <Layout>
+      <AppHeader />
+      <Content style={{ padding: '0 50px', marginTop: '20px' }}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/checkout" element={<Checkout />} />
+        </Routes>
+      </Content>
+      <Footer style={{ textAlign: 'center' }}>asearerdev ©2024</Footer>
+    </Layout>
+  </Router>
+);
 
 export default App;
+
+
+
+

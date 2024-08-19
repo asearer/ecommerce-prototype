@@ -1,33 +1,38 @@
 // src/components/Header.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Layout, Menu, Badge } from 'antd';
-import { ShoppingCartOutlined } from '@ant-design/icons';
+import { Box, Flex, Heading, Button } from '@chakra-ui/react';
 
-const { Header } = Layout;
-
-const AppHeader = () => (
-  <Header style={{ background: '#fff', padding: 0 }}>
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-      <div className="logo">
-        <Link to="/">E-commerce Prototype</Link>
-      </div>
-      <Menu mode="horizontal" defaultSelectedKeys={['home']}>
-        <Menu.Item key="home">
-          <Link to="/">Home</Link>
-        </Menu.Item>
-        <Menu.Item key="cart">
-          <Link to="/cart">
-            <Badge count={5}>
-              <ShoppingCartOutlined style={{ fontSize: '20px' }} />
-            </Badge>
-            Cart
-          </Link>
-        </Menu.Item>
-      </Menu>
-    </div>
-  </Header>
+const Header = () => (
+  <Box
+    as="header"
+    bg="gray.100"
+    color="gray.800"
+    p={4}
+    boxShadow="0 4px 8px rgba(0, 0, 0, 0.1), 0 -1px 3px rgba(255, 255, 255, 0.3)"
+    borderRadius="md"
+  >
+    <Flex align="center" justify="space-between" wrap="wrap">
+      <Heading size="lg" mb={{ base: 2, md: 0 }}>My E-Commerce</Heading>
+      <Flex>
+        <Button as={Link} to="/" colorScheme="blue" variant="link" mr={4}>
+          Home
+        </Button>
+        <Button as={Link} to="/cart" colorScheme="blue" variant="link" mr={4}>
+          Cart
+        </Button>
+        <Button as={Link} to="/profile" colorScheme="blue" variant="link">
+          Profile
+        </Button>
+      </Flex>
+    </Flex>
+  </Box>
 );
 
-export default AppHeader;
+export default Header;
+
+
+
+
+
 

@@ -25,7 +25,7 @@ This project is currently a work in progress. Future updates will include:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/ecommerce-prototype.git
+   git clone https://github.com/asearer/ecommerce-prototype.git
    ```
 
 2. **Install Dependencies**:

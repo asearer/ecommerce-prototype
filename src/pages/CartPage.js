@@ -5,7 +5,7 @@ import { removeFromCart } from '../actions/cartActions';
 import { Box, Container, Text, Button, List, ListItem } from '@chakra-ui/react';
 
 const CartPage = () => {
-  const cartItems = useSelector((state) => state.cart.cartItems);
+  const cartItems = useSelector((state) => state.cart.cartItems || []); // Default to an empty array if undefined
   const dispatch = useDispatch();
 
   return (
@@ -41,6 +41,7 @@ const CartPage = () => {
 };
 
 export default CartPage;
+
 
 
 

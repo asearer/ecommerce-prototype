@@ -13,7 +13,9 @@ const Header = () => (
     borderRadius="md"
   >
     <Flex align="center" justify="space-between" wrap="wrap">
-      <Heading size="lg" mb={{ base: 2, md: 0 }}>E-Commerce Prototype</Heading>
+      <Heading size="lg" mb={{ base: 2, md: 0 }}>
+        E-Commerce Prototype
+      </Heading>
       <Flex>
         <Button as={Link} to="/" colorScheme="blue" variant="link" mr={4}>
           Home
@@ -21,6 +23,7 @@ const Header = () => (
         <Button as={Link} to="/cart" colorScheme="blue" variant="link" mr={4}>
           Cart
         </Button>
+        
         <Button as={Link} to="/profile" colorScheme="blue" variant="link">
           Profile
         </Button>
@@ -30,6 +33,7 @@ const Header = () => (
 );
 
 export default Header;
+
 
 
 

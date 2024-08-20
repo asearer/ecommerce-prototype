@@ -1,7 +1,16 @@
 // src/components/Cart.js
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart } from '../redux/cartSlice'; // Import your cart actions
+import { removeFromCart } from './cartSlice'; // Import your cart actions
+import {
+  Box,
+  Button,
+  Flex,
+  Text,
+  Image,
+  Divider,
+  Stack,
+} from '@chakra-ui/react';
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart.items);
@@ -14,27 +23,40 @@ const Cart = () => {
   const totalAmount = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
-    <div>
-      <h2>Your Cart</h2>
+    <Box padding={5} maxW="1200px" mx="auto">
+      <Text fontSize="2xl" fontWeight="bold" mb={4}>Your Cart</Text>
       {cart.length === 0 ? (
-        <p>Cart is empty.</p>
+        <Text>Your cart is empty.</Text>
       ) : (
-        <div>
-          <ul>
-            {cart.map(item => (
-              <li key={item.id}>
-                <h3>{item.name}</h3>
-                <p>${item.price} x {item.quantity}</p>
-                <button onClick={() => handleRemove(item.id)}>Remove</button>
-              </li>
-            ))}
-          </ul>
-          <h3>Total: ${totalAmount.toFixed(2)}</h3>
-          <button>Proceed to Checkout</button>
-        </div>
+        <Stack spacing={4}>
+          {cart.map(item => (
+            <Flex
+              key={item.id}
+              align="center"
+              p={4}
+              border="1px"
+              borderColor="gray.200"
+              borderRadius="md"
+              boxShadow="md"
+              bg="white"
+            >
+              <Image src={item.image} alt={item.name} boxSize="100px" objectFit="cover" mr={4} />
+              <Box flex="1">
+                <Text fontSize="lg" fontWeight="semibold">{item.name}</Text>
+                <Text>Price: ${item.price.toFixed(2)}</Text>
+                <Text>Quantity: {item.quantity}</Text>
+              </Box>
+              <Button colorScheme="red" onClick={() => handleRemove(item.id)}>Remove</Button>
+            </Flex>
+          ))}
+          <Divider my={4} />
+          <Text fontSize="xl" fontWeight="bold">Total: ${totalAmount.toFixed(2)}</Text>
+          <Button colorScheme="teal" mt={4}>Proceed to Checkout</Button>
+        </Stack>
       )}
-    </div>
+    </Box>
   );
 };
 
 export default Cart;
+

@@ -1,11 +1,13 @@
-// src/redux/store.js
+// src/store.js
 import { configureStore } from '@reduxjs/toolkit';
-import cartReducer from './cartSlice';
+import cartReducer from './cartSlice'; // Ensure this path is correct
+import userReducer from './userSlice'; // Include userReducer if used
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
-    cart: cartReducer
-  }
+    cart: cartReducer,
+    user: userReducer, // Add user reducer if needed
+  },
 });
 
 export default store;

@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import CartPage from './pages/CartPage';
 import ProductPage from './pages/ProductPage';
 import ProductList from './components/ProductList';
+import CustomerProfile from './components/CustomerProfile'; // Import CustomerProfile component
 
 const App = () => (
   <Router>
@@ -14,11 +15,13 @@ const App = () => (
       <Route path="/cart" element={<CartPage />} />
       <Route path="/product/:id" element={<ProductPage />} />
       <Route path="/products" element={<ProductList />} />
+      <Route path="/profile" element={<CustomerProfile />} /> {/* Add route for CustomerProfile */}
     </Routes>
   </Router>
 );
 
 export default App;
+
 
 
 

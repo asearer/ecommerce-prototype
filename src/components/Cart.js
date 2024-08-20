@@ -1,7 +1,7 @@
 // src/components/Cart.js
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart } from './cartSlice'; // Import your cart actions
+import { removeFromCart } from '../redux/cartSlice'; // Ensure the correct import path
 import {
   Box,
   Button,
@@ -59,4 +59,5 @@ const Cart = () => {
 };
 
 export default Cart;
+
 
